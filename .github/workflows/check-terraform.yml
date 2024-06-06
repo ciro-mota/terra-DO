@@ -1,0 +1,38 @@
+name: Check Terraform code
+
+on:
+  push:
+    paths:
+      - '**.tf'
+  workflow_dispatch:
+    inputs:
+      input:
+        description: "Manual Execution"
+        required: true
+        default: "Manual Execution"
+
+jobs:
+  check-terraform:
+    name: Check Terraform code
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: "1.7.2"
+
+      - name: Initialize Terraform
+        run: terraform init
+
+      - name: Validate Terraform configuration
+        run: terraform validate
+
+      - name: Format Terraform code
+        run: terraform fmt -recursive
+
+      - name: Check code with tfsec
+        uses: aquasecurity/tfsec-action@v1.0.0

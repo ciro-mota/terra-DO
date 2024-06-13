@@ -8,5 +8,5 @@ resource "digitalocean_droplet" "terraform-github" {
     var.ssh_fingerprint
   ]
 
-#  user_data = file("./scripts/cloud_init.yaml") ## Uncomment to use with cloud-init.
+  #  user_data = file("./scripts/cloud_init.yaml") ## Uncomment to use with cloud-init.
 }

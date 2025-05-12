@@ -46,7 +46,7 @@ export TF_VAR_ssh_fingerprint=<your-key-fingerprint>
 ## 💻 Usage
 
 - Clone this repo.
-- By default an Droplet with **Debian 12** with `s-1vcpu-2gb` will be provisioned, if you want another OS or machine, modify the `variables.tf` files if you wish.
+- By default an Droplet with **Debian 12** with `s-1vcpu-2gb` will be provisioned, if you want another OS or machine, modify the `modules/droplets/variables.tf` files if you wish.
 - Run `terraform init`, `terraform plan -out= name-of-the-plan` and `terraform apply`. At the end, `terraform destroy`
 
 ## 🔧 cloud-init 
@@ -55,7 +55,7 @@ You can also apply post-installation scripts to your DigitalOcean Droplets throu
 
 You can create your own script and insert it into the `content` field of the `cloud_init.yaml` file.
 
-To work with these settings, uncomment line `11` in the `instance.tf` file.
+To work with these settings, uncomment line `11` in the `modules/droplets/instance.tf` file.
 
 ## 💾 Remote state
 

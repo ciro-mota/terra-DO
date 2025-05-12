@@ -16,3 +16,10 @@ terraform {
   #   skip_metadata_api_check     = true
   # }
 }
+
+module "Droplets" {
+  source          = "./modules/droplets"
+  do_token        = var.do_token
+  ssh_fingerprint = var.ssh_fingerprint
+
+}
